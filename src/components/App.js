@@ -45,6 +45,17 @@ import SearchBar from './SearchBar.js';
             }
           ]
     }
+
+    deleteMovie = (movie) => {
+      const newMovieList = this.state.movies.filter(
+        m => m.id !== movie.id
+      )
+
+      this.setState(
+        { movies: newMovieList }
+      )
+    }
+
     render() {
         
         return (
@@ -56,7 +67,8 @@ import SearchBar from './SearchBar.js';
                 </div>
 
                         <MovieList 
-                        movies={this.state.movies}/>
+                        movies={this.state.movies}
+                        deleteMovieProp = {this.deleteMovie}/>
             </div>
         )
     }
